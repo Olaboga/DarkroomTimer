@@ -1,0 +1,15 @@
+QWidget {
+    background-color: black;
+    color: red;
+    font-family: Arial;
+    font-size: 20px;
+}
+
+QFrame {
+    border: 1px solid red;
+    border-radius: 5px;
+}
+
+QLabel {
+    border: none;
+}

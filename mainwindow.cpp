@@ -17,12 +17,6 @@ MainWindow::MainWindow(QWidget *parent)
     panels.reserve(3);
     for(auto i = 0; i < 3; ++i)
     {
-        /*auto* label = new QLabel("test", central);
-        label->setAlignment(Qt::AlignCenter);
-        label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        label->setStyleSheet("font-size: 24px;");
-        label->setMinimumHeight(60);
-        layout->addWidget(label);*/
         auto* panel = new TimerPanel("Test Name", central);
         if(i > 0)
             connect(panels[i-1], &TimerPanel::timerDone, panel, &TimerPanel::startTimer);

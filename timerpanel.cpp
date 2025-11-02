@@ -8,20 +8,16 @@ TimerPanel::TimerPanel(QWidget* parent)
 TimerPanel::TimerPanel(QString panelName, QWidget *parent)
     : QFrame(parent)
 {
-    setFrameShape(QFrame::Box);
-    setFrameShadow(QFrame::Plain);
-    setLineWidth(1);
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    setMinimumSize(200, 200);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
     m_layout = new QVBoxLayout(this);
     setLayout(m_layout);
 
     auto* label = new QLabel(panelName, this);
     label->setAlignment(Qt::AlignCenter);
-    label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    label->setStyleSheet("font-size: 24px;");
+    label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     m_layout->addWidget(label);
+    adjustSize();
 }
 
 void TimerPanel::startTimer()
@@ -35,6 +31,7 @@ void TimerPanel::startTimer()
            emit timerDone();
        });
        m_layout->addWidget(tw);
+       adjustSize();
        updateGeometry();
        update();
 }
