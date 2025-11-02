@@ -24,6 +24,16 @@ TimerWidget::TimerWidget(int duration, QWidget* parent)
     timer->start(1000);
 }
 
+QSize TimerWidget::sizeHint() const
+{
+    return QSize(150, 150);
+}
+
+QSize TimerWidget::minimumSizeHint() const
+{
+    return QSize(100, 100);
+}
+
 void TimerWidget::paintEvent(QPaintEvent*)
 {
     QPainter painter(this);

@@ -12,6 +12,8 @@ class TimerWidget : public QWidget
 public:
     explicit TimerWidget(QWidget *parent = nullptr);
     explicit TimerWidget(int duration, QWidget* parent = nullptr);
+    QSize sizeHint() const override;
+    QSize minimumSizeHint() const override;
 
 signals:
     void timeOut();
