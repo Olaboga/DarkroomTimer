@@ -1,5 +1,6 @@
 #include "timerwidget.h"
 #include <QTimer>
+#include <QStyleOption>
 
 TimerWidget::TimerWidget(QWidget *parent)
     : QWidget{parent}
@@ -39,15 +40,22 @@ void TimerWidget::paintEvent(QPaintEvent*)
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
 
+    QStyleOption opt;
+    opt.initFrom(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &painter, this);
+
     auto w = width();
     auto h = height();
     auto size = qMin(w, h) - 10;
     QRectF rect((w - size) / 2, (h - size) / 2, size, size);
 
-    painter.setPen(QPen(Qt::black, 10));
+    auto mid = palette().color(QPalette::Mid);
+    auto light = palette().color(QPalette::Light);
+
+    painter.setPen(QPen(mid, 10));
     painter.drawEllipse(rect);
 
-    painter.setPen((QPen(Qt::red, 10, Qt::SolidLine, Qt::RoundCap)));
+    painter.setPen((QPen(light, 10, Qt::SolidLine, Qt::RoundCap)));
     auto fill = static_cast<float>(m_currTime) / static_cast<float>(m_duration);
     auto spanAngle = static_cast<int>(fill*16*360);
     painter.drawArc(rect, 90 * 16, -spanAngle);

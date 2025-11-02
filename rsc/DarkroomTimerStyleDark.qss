@@ -1,12 +1,12 @@
 QWidget {
-    background-color: black;
-    color: red;
+    background-color: palette(dark);
+    color: palette(light);
     font-family: Arial;
     font-size: 20px;
 }
 
 QFrame {
-    border: 1px solid red;
+    border: 1px solid palette(light);
     border-radius: 1px;
 }
 
@@ -15,17 +15,17 @@ QLabel {
 }
 
 QPushButton {
-    border: 1px solid red;
+    border: 1px solid palette(light);
     border-radius: 5px;
 }
 
 QPushButton:disabled {
-    color: #500000;
-    border: 1px solid #500000;
+    color: palette(midlight);
+    border: 1px solid palette(midlight);
 }
 
 QPushButton:pressed {
-    background-color: #500000;
-    color: #000000;
-    border: 1px solid #300000;
+    background-color: palette(midlight);
+    color: palette(dark);
+    border: 1px solid palette(mid);
 }
