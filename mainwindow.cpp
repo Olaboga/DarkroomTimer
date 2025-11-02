@@ -24,6 +24,8 @@ MainWindow::MainWindow(QWidget *parent)
         panels.push_back(panel);
     }
 
+    layout->addStretch();
+
     setCentralWidget(central);
     panels[0]->startTimer();
 
