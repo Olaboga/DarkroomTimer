@@ -55,7 +55,7 @@ void TimerWidget::paintEvent(QPaintEvent*)
     painter.setPen(QPen(mid, 10));
     painter.drawEllipse(rect);
 
-    painter.setPen((QPen(light, 10, Qt::SolidLine, Qt::RoundCap)));
+    painter.setPen((QPen(light, 10, Qt::SolidLine, Qt::FlatCap)));
     auto fill = static_cast<float>(m_currTime) / static_cast<float>(m_duration);
     auto spanAngle = static_cast<int>(fill*16*360);
     painter.drawArc(rect, 90 * 16, -spanAngle);
