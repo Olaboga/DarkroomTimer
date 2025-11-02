@@ -22,7 +22,7 @@ TimerPanel::TimerPanel(QString panelName, QWidget *parent)
 
 void TimerPanel::startTimer()
 {
-       auto* tw = new TimerWidget(30, this);
+       auto* tw = new TimerWidget(10, this);
        tw->setGeometry(100, 100, 200, 200);
        connect(tw, &TimerWidget::timeOut, this, [=](){
            m_layout->removeWidget(tw);

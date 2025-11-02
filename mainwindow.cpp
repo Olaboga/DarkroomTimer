@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     auto* central = new QWidget;
     auto* layout = new QVBoxLayout(central);
     layout->setContentsMargins(40, 40, 40, 40);
-    layout->setSpacing(20);
+    layout->setSpacing(10);
     layout->setAlignment(Qt::AlignCenter);
 
     QVector<TimerPanel*> panels;
@@ -26,9 +26,19 @@ MainWindow::MainWindow(QWidget *parent)
 
     layout->addStretch();
 
-    setCentralWidget(central);
-    panels[0]->startTimer();
+    auto* btn = new QPushButton("Start");
+    auto* pnl = panels[0];
+    connect(btn, &QPushButton::clicked, this, [=](){
+        pnl->startTimer();
+        btn->setEnabled(false);
+    });
 
+    connect(panels.last(), &TimerPanel::timerDone, this, [=](){
+        btn->setEnabled(true);
+    });
+
+    layout->addWidget(btn);
+    setCentralWidget(central);
 }
 
 MainWindow::~MainWindow()

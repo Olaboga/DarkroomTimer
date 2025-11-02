@@ -7,9 +7,25 @@ QWidget {
 
 QFrame {
     border: 1px solid red;
-    border-radius: 5px;
+    border-radius: 1px;
 }
 
 QLabel {
     border: none;
+}
+
+QPushButton {
+    border: 1px solid red;
+    border-radius: 5px;
+}
+
+QPushButton:disabled {
+    color: #500000;
+    border: 1px solid #500000;
+}
+
+QPushButton:pressed {
+    background-color: #500000;
+    color: #000000;
+    border: 1px solid #300000;
 }
