@@ -6,8 +6,11 @@ TimerPanel::TimerPanel(QWidget* parent)
 {}
 
 TimerPanel::TimerPanel(QString panelName, QWidget *parent)
-    : QWidget{parent}
+    : QFrame(parent)
 {
+    setFrameShape(QFrame::Box);
+    setFrameShadow(QFrame::Plain);
+    setLineWidth(1);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setMinimumSize(200, 200);
 

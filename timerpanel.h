@@ -3,8 +3,9 @@
 
 #include <QWidget>
 #include <qboxlayout.h>
+#include <qframe.h>
 
-class TimerPanel : public QWidget
+class TimerPanel : public QFrame
 {
     Q_OBJECT
 public:
