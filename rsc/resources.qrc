@@ -2,7 +2,8 @@
     <qresource prefix="/styles">
         <file>DarkroomTimerStyleDark.qss</file>
     </qresource>
-    <qresource prefix="/souns">
+    <qresource prefix="/sounds">
         <file>beep.wav</file>
+        <file>click.wav</file>
     </qresource>
 </RCC>

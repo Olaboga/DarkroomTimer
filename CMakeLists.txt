@@ -14,6 +14,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Multimedia)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -29,6 +30,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         timerpanel.h timerpanel.cpp
         rsc/DarkroomTimerStyleDark.qss
         rsc/resources.qrc
+        userpreset.h userpreset.cpp
+        settingscreen.h settingscreen.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET DarkroomTimer2 APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -52,6 +55,7 @@ target_link_libraries(DarkroomTimer2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(DarkroomTimer2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(DarkroomTimer2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(DarkroomTimer2 PRIVATE Qt${QT_VERSION_MAJOR}::Multimedia)
+target_link_libraries(DarkroomTimer2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

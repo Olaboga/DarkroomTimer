@@ -2,6 +2,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <qlabel.h>
+#include <QMediaPlayer>
 #include "timerpanel.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -28,9 +29,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     auto* btn = new QPushButton("Start");
     auto* pnl = panels[0];
+    auto* click = new QMediaPlayer(this);
+    click->setSource(QUrl("qrc:/sounds/click.wav"));
+    auto* output = new QAudioOutput(this);
+    click->setAudioOutput(output);
     connect(btn, &QPushButton::clicked, this, [=](){
         pnl->startTimer();
         btn->setEnabled(false);
+        click->play();
     });
 
     connect(panels.last(), &TimerPanel::timerDone, this, [=](){

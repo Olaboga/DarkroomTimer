@@ -2,8 +2,10 @@
 #define TIMERPANEL_H
 
 #include <QWidget>
+#include <qaudiooutput.h>
 #include <qboxlayout.h>
 #include <qframe.h>
+#include <qmediaplayer.h>
 
 class TimerPanel : public QFrame
 {
@@ -20,6 +22,8 @@ signals:
 
 private:
     QVBoxLayout* m_layout;
+    QMediaPlayer* m_beepPlayer;
+    QAudioOutput* m_audioOutput;
 };
 
 #endif // TIMERPANEL_H
