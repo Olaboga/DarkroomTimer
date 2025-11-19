@@ -1,24 +1,17 @@
-#include "mainwindow.h"
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <qlabel.h>
-#include <QMediaPlayer>
-#include "timerpanel.h"
+#include "processscreen.h"
+#include "../../timerpanel.h"
+#include <qpushbutton.h>
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
+ProcessScreen::ProcessScreen(QWidget *parent)
+    : QWidget{parent}
 {
-    auto* central = new QWidget;
-    auto* layout = new QVBoxLayout(central);
-    layout->setContentsMargins(40, 40, 40, 40);
-    layout->setSpacing(10);
-    layout->setAlignment(Qt::AlignCenter);
+    auto* layout = new QVBoxLayout(this);
 
     QVector<TimerPanel*> panels;
     panels.reserve(3);
     for(auto i = 0; i < 3; ++i)
     {
-        auto* panel = new TimerPanel("Test Name", central);
+        auto* panel = new TimerPanel("Test Name", this);
         if(i > 0)
             connect(panels[i-1], &TimerPanel::timerDone, panel, &TimerPanel::startTimer);
         layout->addWidget(panel);
@@ -44,9 +37,4 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     layout->addWidget(btn);
-    setCentralWidget(central);
-}
-
-MainWindow::~MainWindow()
-{
 }

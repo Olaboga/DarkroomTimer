@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "src/ui/mainwindow.h"
 #include <QFile>
 #include <QApplication>
 #include <QPalette>

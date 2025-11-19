@@ -15,11 +15,16 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Multimedia)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
         main.cpp
-        mainwindow.cpp
-        mainwindow.h
+        src/ui/mainwindow.cpp
+        src/ui/mainwindow.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -31,7 +36,15 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         rsc/DarkroomTimerStyleDark.qss
         rsc/resources.qrc
         userpreset.h userpreset.cpp
-        settingscreen.h settingscreen.cpp
+
+        src/core/usersettngs.h src/core/usersettngs.cpp
+        src/core/bath.h src/core/bath.cpp
+        src/ui/settingscreen.h src/ui/settingscreen.cpp
+        src/ui/addbathscreen.h src/ui/addbathscreen.cpp
+        src/core/process.h src/core/process.cpp
+        src/ui/addprocessscreen.h src/ui/addprocessscreen.cpp
+        src/ui/processscreen.h src/ui/processscreen.cpp
+        src/ui/selectprocessscreen.h src/ui/selectprocessscreen.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET DarkroomTimer2 APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -55,6 +68,11 @@ target_link_libraries(DarkroomTimer2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(DarkroomTimer2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(DarkroomTimer2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(DarkroomTimer2 PRIVATE Qt${QT_VERSION_MAJOR}::Multimedia)
+target_link_libraries(DarkroomTimer2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(DarkroomTimer2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(DarkroomTimer2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(DarkroomTimer2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(DarkroomTimer2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(DarkroomTimer2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
